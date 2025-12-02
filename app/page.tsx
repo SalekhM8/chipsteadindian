@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       
       <SectionTitle subtitle="Est. 1990">
-        &quot;Chipstead Tandoori is a love letter to the timeless flavors of India, bringing the warmth of Bombay to the hills of Surrey.&quot;
+        &quot;Chipstead Tandoori is a love letter to the timeless flavors of South Asia, bringing the warmth of the region to the hills of Surrey.&quot;
       </SectionTitle>
 
       <StoryHighlight />
