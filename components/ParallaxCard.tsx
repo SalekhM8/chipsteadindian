@@ -30,6 +30,9 @@ export default function ParallaxCard({
   const y = useTransform(smoothProgress, [0, 1], ["-5%", "5%"]);
   const willChange = useWillChange();
 
+  // Logic to determine if it's an external link (tel: or http) vs internal
+  const isExternal = link.startsWith("http") || link.startsWith("tel:");
+
   return (
     <div
       ref={containerRef}
@@ -68,15 +71,29 @@ export default function ParallaxCard({
                     {title}
                 </h2>
                 
-                <Link 
+                {isExternal ? (
+                  <a 
                     href={link}
+                    target={link.startsWith("http") ? "_blank" : undefined}
+                    rel={link.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="group/link inline-flex flex-col items-center"
-                >
-                    <span className="dishoom-button text-chipstead-red group-hover/link:text-black transition-colors duration-300 uppercase">
-                    {linkText}
-                    </span>
-                    <span className="h-px w-[140%] bg-chipstead-red mt-2 group-hover/link:bg-black transition-colors duration-300 scale-x-100 group-hover/link:scale-x-50 origin-center" />
-                </Link>
+                  >
+                      <span className="dishoom-button text-chipstead-red group-hover/link:text-black transition-colors duration-300 uppercase">
+                      {linkText}
+                      </span>
+                      <span className="h-px w-[140%] bg-chipstead-red mt-2 group-hover/link:bg-black transition-colors duration-300 scale-x-100 group-hover/link:scale-x-50 origin-center" />
+                  </a>
+                ) : (
+                  <Link 
+                      href={link}
+                      className="group/link inline-flex flex-col items-center"
+                  >
+                      <span className="dishoom-button text-chipstead-red group-hover/link:text-black transition-colors duration-300 uppercase">
+                      {linkText}
+                      </span>
+                      <span className="h-px w-[140%] bg-chipstead-red mt-2 group-hover/link:bg-black transition-colors duration-300 scale-x-100 group-hover/link:scale-x-50 origin-center" />
+                  </Link>
+                )}
              </div>
           </div>
       </motion.div>

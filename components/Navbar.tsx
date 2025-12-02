@@ -34,14 +34,14 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "circOut" }}
       >
-        {/* Left Links - Using exact .dishoom-top-nav specs */}
+        {/* Left Links */}
         <div className="hidden md:flex items-center space-x-8 dishoom-top-nav">
           <Link href="/menu" className="hover:text-chipstead-red transition-colors">MENUS</Link>
           <Link href="/about" className="hover:text-chipstead-red transition-colors">OUR STORY</Link>
-          <Link href="/contact" className="hover:text-chipstead-red transition-colors">CONTACT</Link>
+          <a href="tel:01737551219" className="hover:text-chipstead-red transition-colors">CONTACT</a>
         </div>
 
-        {/* Center Logo - Cheltenham BT style */}
+        {/* Center Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
            <Link href="/" className="flex flex-col items-center group">
              <span className="dishoom-h2 text-2xl md:text-3xl tracking-[0.2em] font-bold uppercase group-hover:opacity-80 transition-opacity">
@@ -53,11 +53,11 @@ export default function Navbar() {
            </Link>
         </div>
 
-        {/* Right Actions - Using .dishoom-button specs for Order Online */}
+        {/* Right Actions */}
         <div className="flex items-center space-x-6">
-          <Link href="/order" className="hidden md:flex dishoom-button uppercase border-2 border-current px-8 py-3 hover:bg-chipstead-black hover:text-chipstead-cream transition-colors duration-300">
+          <a href="https://chipsteadtandoori.app4food.co.uk" target="_blank" rel="noopener noreferrer" className="hidden md:flex dishoom-button uppercase border-2 border-current px-8 py-3 hover:bg-chipstead-black hover:text-chipstead-cream transition-colors duration-300">
             Order Online
-          </Link>
+          </a>
           <button onClick={() => setIsMenuOpen(true)} className="md:hidden">
             <Menu className="w-6 h-6" />
           </button>
@@ -84,9 +84,9 @@ export default function Navbar() {
             <div className="border-dishoom p-12 w-full max-w-sm mx-4 bg-chipstead-cream">
                 <div className="flex flex-col items-center space-y-8 dishoom-h2 italic normal-case tracking-normal">
                 <Link href="/menu" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Menus</Link>
-                <Link href="/order" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Order Online</Link>
+                <a href="https://chipsteadtandoori.app4food.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Order Online</a>
                 <Link href="/about" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Our Story</Link>
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Contact</Link>
+                <a href="tel:01737551219" onClick={() => setIsMenuOpen(false)} className="hover:text-chipstead-red">Contact (01737 551 219)</a>
                 </div>
             </div>
           </motion.div>

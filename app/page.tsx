@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import ParallaxCard from "@/components/ParallaxCard";
 import SectionTitle from "@/components/SectionTitle";
 import StoryHighlight from "@/components/StoryHighlight";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -34,7 +33,7 @@ export default function Home() {
         imageSrc="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1971&auto=format&fit=crop"
         title="Order Online"
         subtitle="Takeaway & Delivery"
-        link="/order"
+        link="https://chipsteadtandoori.app4food.co.uk"
         linkText="Order Now"
       />
 
@@ -50,9 +49,9 @@ export default function Home() {
           <p className="dishoom-body text-white/60 max-w-xs mb-12">
              Bringing the authentic taste of Chipstead Tandoori directly to your doorstep.
           </p>
-          <Link href="/order" className="dishoom-button text-white border border-white/30 px-8 py-4 hover:bg-white hover:text-chipstead-black transition-all duration-300 uppercase">
+          <a href="https://chipsteadtandoori.app4food.co.uk" target="_blank" rel="noopener noreferrer" className="dishoom-button text-white border border-white/30 px-8 py-4 hover:bg-white hover:text-chipstead-black transition-all duration-300 uppercase">
             Check Eligibility
-          </Link>
+          </a>
         </div>
         <div className="relative h-[60vh] md:h-auto">
            <Image 
@@ -71,13 +70,13 @@ export default function Home() {
       </SectionTitle>
       
       <div className="pb-24">
-         {/* Contact Section instead of Reservation */}
+         {/* Contact Section */}
          <ParallaxCard
             imageSrc="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop"
             title="Contact Us"
             subtitle="Get in Touch"
-            link="/contact"
-            linkText="View Details"
+            link="tel:01737551219"
+            linkText="Call 01737 551 219"
         />
       </div>
       
