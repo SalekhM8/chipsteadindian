@@ -12,7 +12,7 @@ export default function About() {
         <div className="relative h-[50vh] w-full border-dishoom p-2 bg-chipstead-cream">
            <div className="relative h-full w-full border border-black/10 overflow-hidden">
              <Image
-               src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2074&auto=format&fit=crop"
+               src="/story.png"
                alt="Restaurant Atmosphere"
                fill
                className="object-cover sepia-[20%] contrast-125"
