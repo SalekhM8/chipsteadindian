@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@theme {
+  /* 
+    User's Spec:
+    - Serif: Cheltenham BT
+    - Sans: Gill Sans Nova
+    
+    Since we don't have the paid files, we map these names to the closest FREE Google variable fonts 
+    that we can tune to match the metrics (Fraunces for Cheltenham, Montserrat for Gill Sans).
+  */
+  --font-cheltenham-bt: var(--font-cheltenham-bt), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-gill-sans-nova: var(--font-gill-sans-nova), ui-sans-serif, system-ui, sans-serif;
+
+  /* Exact Dishoom Colors from User Report */
+  --color-chipstead-cream: #F5F3EA; /* "f5f3ea" from btn text color context */
+  --color-chipstead-black: #353839; /* "353839" from User Report */
+  --color-chipstead-red: #8a2b2b;
+  --color-chipstead-gold: #c5a059;
+  
+  --shadow-dishoom: 0 8px 30px rgba(0,0,0,0.12);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 53, 56, 57; /* #353839 */
+  --background-rgb: 245, 243, 234;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-cheltenham-bt); /* Default body is Serif (Cheltenham BT) per report */
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5;
+  color: var(--color-chipstead-black);
+  background-color: var(--color-chipstead-cream);
+}
+
+/* 
+  RECREATING DISHOOM UTILITIES EXACTLY 
+*/
+
+/* The "Dishoom H2" Style - Section Headings */
+.dishoom-h2, h2 {
+  font-family: var(--font-cheltenham-bt);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em; /* 0.15em mobile */
+  font-size: 1.3125rem;   /* ~21px mobile */
+  line-height: 1.33;
+}
+
+@media (min-width: 1024px) {
+  .dishoom-h2, h2 {
+    font-size: 1.875rem;  /* ~30px desktop */
+    line-height: 1.2;
+    letter-spacing: 0.2em; /* 0.2em desktop */
+  }
+}
+
+/* The "Dishoom Nav / Button" Style */
+.dishoom-nav, .dishoom-button, .font-sans {
+  font-family: var(--font-gill-sans-nova);
+  font-size: 0.8125rem; /* ~13px */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Top Nav Specifics */
+.dishoom-top-nav {
+  font-family: var(--font-gill-sans-nova);
+  font-size: 0.875rem; /* ~14-16px */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+/* Award Box Text / Body Copy */
+.dishoom-body {
+  font-family: var(--font-cheltenham-bt);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-chipstead-black);
+}
+
+/* Custom Utilities */
+.tracking-dishoom {
+  letter-spacing: 0.02em;
+}
+
+.tracking-tight-dishoom {
+  letter-spacing: -0.03em;
+}
+
+/* Dishoom Double Border Style */
+.border-dishoom {
+  border: 1px solid rgba(0,0,0,0.15);
+  outline: 4px solid var(--color-chipstead-cream);
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.15);
+}
+
+/* Lenis Smooth Scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
