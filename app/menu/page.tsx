@@ -55,17 +55,10 @@ export default function MenuPage() {
 
   const scrollToCategory = (id: string) => {
     setActiveCategory(id);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 100; // Height of sticky header + padding
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    // Relies on `scroll-mt-32` on each section to handle the sticky-header offset.
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (

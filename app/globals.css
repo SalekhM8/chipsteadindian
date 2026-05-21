@@ -17,7 +17,8 @@
   --color-chipstead-black: #353839; /* "353839" from User Report */
   --color-chipstead-red: #8a2b2b;
   --color-chipstead-gold: #c5a059;
-  
+  --color-chipstead-green: #2d6a4f;
+
   --shadow-dishoom: 0 8px 30px rgba(0,0,0,0.12);
 }
 
@@ -118,4 +119,21 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* Hide scrollbars on horizontal scroll strips (mobile menu nav). */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keep heavy off-screen sections out of the render path until needed. */
+@media (min-width: 768px) {
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 800px;
+  }
 }

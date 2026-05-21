@@ -12,14 +12,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    // Passive listener — frees the main thread to scroll without waiting on JS.
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -48,7 +44,7 @@ export default function Navbar() {
                CHIPSTEAD
              </span>
              <span className="text-[8px] font-sans tracking-[0.4em] uppercase opacity-60 hidden md:block font-bold">
-               Est. 1990
+               Est. 1988
              </span>
            </Link>
         </div>
